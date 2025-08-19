@@ -41,6 +41,29 @@ app.get("/user", async (req, res) => {
 
 
 
+app.put("/user/:id", async (req, res) => { // os dois pontos é para dizer que é uma variável, e o id é o nome da variável que vai receber o valor do usuário
+    
+  await prisma.user.update({ //  coloquei await para esperar a criação do usuário e async para poder utilizar o await
+    where: {
+      id:req.params.id // req.params.id - é o id que foi passado na rota
+    },
+    data: {
+      email: req.body.email,
+      name: req.body.name,
+      age: req.body.age
+    }
+  })
+  
+    res.status(201).json(req.body); 
+    
+
+
+})
+
+
+
+
+
 
 //precisa saber qual porta vai rodar o servidor
 app.listen(3000)
