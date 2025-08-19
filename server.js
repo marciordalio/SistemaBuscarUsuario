@@ -1,4 +1,8 @@
 import express from "express";
+import { PrismaClient } from './generated/prisma/index.js'
+
+const prisma = new PrismaClient()
+
 
 const app = express(); // Transformei o express em uma função , quando eu chamar a app ela vai chamar o express
  
@@ -7,13 +11,18 @@ const user = []
 app.use(express.json()); // aviso o express vou utilizar JSON 
 
 
-app.post("/user", (req, res) => {
-    console.log(req.body); // Aqui eu consigo ver o que foi enviado no body da requisição
-
-
+app.post("/user", async (req, res) => {
+    
+  await prisma.user.create({ //  coloquei await para esperar a criação do usuário e async para poder utilizar o await
+    data: {
+      email: req.body.email,
+      name: req.body.name,
+      age: req.body.age
+    }
+  })
+  
     res.status(201).send("ok post"); 
-    user.push(req.body); // Aqui eu estou adicionando o usuário que foi enviado no body da requisição ao array user
-
+    
 
 
 })
