@@ -6,7 +6,7 @@ const prisma = new PrismaClient()
 
 const app = express(); // Transformei o express em uma função , quando eu chamar a app ela vai chamar o express
  
-const user = [] 
+
 
 app.use(express.json()); // aviso o express vou utilizar JSON 
 
@@ -27,7 +27,11 @@ app.post("/user", async (req, res) => {
 
 })
 
-app.get("/user", (req, res) => {
+app.get("/user", async (req, res) => {
+
+
+  const user = await prisma.user.findMany() // findMany - buscar muitos usuários
+
     // req - requisição
     // res - resposta o user é o nome da rota 
     // precisa retornar algo para o usuário
