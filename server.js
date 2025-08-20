@@ -1,18 +1,19 @@
 import express from "express";
 import { PrismaClient } from './generated/prisma/index.js'
+import e from "express";
 
 const prisma = new PrismaClient()
 
 
 const app = express(); // Transformei o express em uma função , quando eu chamar a app ela vai chamar o express
- 
+
 
 
 app.use(express.json()); // aviso o express vou utilizar JSON 
 
 
 app.post("/user", async (req, res) => {
-    
+
   await prisma.user.create({ //  coloquei await para esperar a criação do usuário e async para poder utilizar o await
     data: {
       email: req.body.email,
@@ -20,63 +21,87 @@ app.post("/user", async (req, res) => {
       age: req.body.age
     }
   })
-  
-    res.status(201).send("ok post"); 
-    
+
+  res.status(201).send("ok post");
+
 
 
 })
 
 app.get("/user", async (req, res) => {
 
+  let users = []
 
-  const user = await prisma.user.findMany() // findMany - buscar muitos usuários
+  if (req.query.name) {
+    users = await prisma.user.findMany({ // findMany - buscar muitos usuários
+      where: {
+        name: req.query.name,
+        email: req.query.email 
+      }
 
-    // req - requisição
-    // res - resposta o user é o nome da rota 
-    // precisa retornar algo para o usuário
-    res.status(200).json(user);
-  
+
+    })
+
+
+  } else {
+    users = await prisma.user.findMany() // findMany - buscar muitos usuários
+  }
+
+  res.status(200).json(users);
+
+
 })
 
 
 
 app.put("/user/:id", async (req, res) => { // os dois pontos é para dizer que é uma variável, e o id é o nome da variável que vai receber o valor do usuário
-    
+
   await prisma.user.update({ //  coloquei await para esperar a criação do usuário e async para poder utilizar o await
     where: {
-      id:req.params.id // req.params.id - é o id que foi passado na rota
+      id: req.params.id // req.params.id - é o id que foi passado na rota
     },
     data: {
       email: req.body.email,
       name: req.body.name,
       age: req.body.age
+
     }
   })
-  
-    res.status(201).json(req.body); 
-    
+
+  res.status(201).json(req.body);
+
 
 
 })
 
 
+app.delete("/user/:id", async (req, res) => { // os dois pontos é para dizer que é uma variável, e o id é o nome da variável que vai receber o valor do usuário
+  await prisma.user.delete({ //  coloquei await para esperar a criação do usuário e async para poder utilizar o await
+    where: {
+      id: req.params.id // req.params.id - é o id que foi passado na rota
+    }
+  })
 
+  res.status(204).send("Usuário deletado com sucesso");
+
+})
 
 
 
 //precisa saber qual porta vai rodar o servidor
 app.listen(3000)
 // quando o servidor estiver rodando, vai executar essa função
-    console.log("Servidor rodando em http://localhost:3000");
-
-  
+console.log("Servidor rodando em http://localhost:3000");
 
 
 
 
 
 
+
+// req - requisição
+// res - resposta o user é o nome da rota
+// precisa retornar algo para o usuário
 
 
 
