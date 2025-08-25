@@ -1,6 +1,7 @@
 # API REST de Usuários com Node.js, Express, Prisma e MongoDB
 
-Esta é uma **API REST** simples para cadastro e gerenciamento de usuários, desenvolvida com **Node.js**, **Express**, **Prisma** e **MongoDB**. O projeto permite criar, listar, atualizar e deletar usuários por meio de rotas HTTP (`POST`, `GET`, `PUT`, `DELETE`).  
+Esta é uma API REST simples para cadastro e gerenciamento de usuários, desenvolvida como parte de um projeto do **Dev Club** do professor **Rodolfo**, utilizando **Node.js**, **Express**, **Prisma** e **MongoDB**. O projeto permite criar, listar, atualizar e deletar usuários por meio de rotas HTTP (`POST`, `GET`, `PUT`, `DELETE`).
+
 
 ---
 
