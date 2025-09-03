@@ -1,5 +1,7 @@
 import './style.css'
 import Trash from '../../assets/lixeira.png'
+import Seta from '../../assets/seta.png'
+
 
 function Home() {
 
@@ -31,11 +33,23 @@ function Home() {
 
             <div className='container'>
                 <form>
-                    <h1> Cadastro de Usuário</h1>
-                    <input name='nome' type='text'  placeholder="Nome" />
-                    <input idade='idade' type='number'  placeholder="Idade" />
-                    <input email='nome' type='email'  placeholder="email" />
-                    <button type='buttun'>  Cadastrar</button>
+                    <h1> Cadastrar Usuários</h1>
+                    <div className="input-group">
+                        <label htmlFor="nome">Nome</label>
+                        <input id="nome" name='nome' type='text' placeholder="francico de andrade" />
+                    </div>
+                    <div className="input-group">
+                        <label htmlFor="idade">Idade</label>
+                        <input id="idade" name='idade' type='number' placeholder="20" />
+                    </div>
+                    <div className="input-group">
+                        <label htmlFor="email">Email</label>
+                        <input id="email" name='email' type='email' placeholder="exemplo@email.com" />
+                    </div>
+                    <button className= 'BotaoCadastrar' type='button'>
+                        CADASTRAR
+                        <img src={Seta} alt="cadastrar" />
+                    </button>
                 </form>
             </div>
 
@@ -43,7 +57,7 @@ function Home() {
         {users.map(user =>( 
          <div key={user.id} className='cardsUsers' >
              <p>Nome: {user.name}</p>
-             <p>Idade:{user.age} </p>
+             <p>Idade:{user.idade} </p>
              <p>Email: {user.email}</p>
             <div className='delete'>
                 <button>
