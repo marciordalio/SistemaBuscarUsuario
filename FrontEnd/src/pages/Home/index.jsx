@@ -29,8 +29,6 @@ function Home() {
 
 
         <div className='GERAL'>
-
-
             <div className='container'>
                 <form>
                     <h1> Cadastrar Usuários</h1>
@@ -53,31 +51,22 @@ function Home() {
                 </form>
             </div>
 
-
-        {users.map(user =>( 
-         <div key={user.id} className='cardsUsers' >
-             <p>Nome: {user.name}</p>
-             <p>Idade:{user.idade} </p>
-             <p>Email: {user.email}</p>
-            <div className='delete'>
-                <button>
-                   <img src={Trash} alt='deletar'/> 
-                </button>
+            <div className='container-cards'>
+                {users.map(user => (
+                    <div key={user.id} className='cardsUsers' >
+                        <div>
+                            <p><strong>Nome:</strong> {user.name}</p>
+                            <p><strong>Idade:</strong> {user.idade}</p>
+                            <p><strong>Email:</strong> {user.email}</p>
+                        </div>
+                        <div className='delete'>
+                            <button>
+                                <img src={Trash} alt='deletar' />
+                            </button>
+                        </div>
+                    </div>
+                ))}
             </div>
-         </div>
-      ))}
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
 
 

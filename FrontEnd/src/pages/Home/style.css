@@ -1,45 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
 
-.container{
+.GERAL {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    min-height: 100vh;  
+ 
+    background-image: url('../../assets/fundo.png');
+    background-size: cover;  
+    background-position: center; 
+    backgbackground-position: center; round-repeat: no-repeat; 
+}
+
+.container {
 
     display: flex;
-    align-items: center;
+    
     flex-direction: column;
     padding-top: 100px;
-    
+
 }
 
-h1{
-     font-family: 'Poppins', sans-serif;
-     color: white; 
-     text-align: center; 
-     padding-top: 0px;
-     
-     font-weight: 300;
-   padding-bottom: 0px;
+h1 {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+    padding-top: 0px;
+
+    font-weight: 300;
+    padding-bottom: 0px;
 }
 
- 
 
-form{
+
+form {
     display: flex;
     flex-direction: column;
     gap: 23px;
     width: 400px;
-    background: linear-gradient(135deg,#9a66ff, #320094);
+    background: linear-gradient(135deg, #9a66ff, #320094);
     padding: 37px;
     border-radius: 23px;
     padding-top: 22px;
-   box-shadow: 0px 1px 18px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 1px 18px rgba(0, 0, 0, 0.3);
 
 }
 
-form input{
+form input {
     padding: 12px;
     border-radius: 10px;
-    background-color:rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     border: none;
-   
+    outline: none;
+    color: white;
+
     box-shadow: 0px 8px 14px rgba(0, 0, 0, 0.2);
 }
 
@@ -58,50 +74,89 @@ form input{
     font-family: 'Poppins', sans-serif;
 }
 
-input::placeholder{
+input::placeholder {
     color: #b6b2dd;
     font-style: italic;
 }
 
-.BotaoCadastrar{
- padding: 6px;
- border-radius: 15px;
- width: 200px; 
- align-self: center;
- border: none;
- font-size: 1.1em;
- font-weight: 500;
- cursor: pointer;
- display: flex;
- align-items: center;
- justify-content: center;
- gap: 10px;
- color: #6532c9;
- background-color: white;
-  transition: transform 0.2s ease-in-out;
-  margin-top: 25px;
+.BotaoCadastrar {
+    padding: 6px;
+    border-radius: 15px;
+    width: 200px;
+    align-self: center;
+    border: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #6532c9;
+    background-color: white;
+    transition: transform 0.2s ease-in-out;
+    margin-top: 25px;
 }
 
 .BotaoCadastrar:hover {
-        transform: scale(1.03);
-    }
+    transform: scale(1.03);
+}
 
 
 
-    
+
 .BotaoCadastrar img {
     width: 40px;
-    
+
 }
 
 
 input[type=number] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
-.cardsUsers{
+.container-cards {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
 
-    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.cardsUsers {
+    display: flex;
+   align-items: center;
+   
+    background: linear-gradient(135deg, #9a66ff, #320094);
+    width: 400px;
+    border-radius: 23px;
+    padding: 20px;
+    box-shadow: 0px 1px 18px rgba(0, 0, 0, 0.3);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    justify-content: space-between;
+}
+
+.cardsUsers p {
+    margin: 8px 0;
+    font-size: 16px;
+    word-break: break-word;
+    
+}
+
+.cardsUsers .delete button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.cardsUsers .delete img {
+    width: 80px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.cardsUsers .delete img:hover {
+    transform: scale(1.15);
 }
