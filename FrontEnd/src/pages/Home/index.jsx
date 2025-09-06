@@ -1,32 +1,19 @@
 import './style.css'
 import Trash from '../../assets/lixeira.png'
 import Seta from '../../assets/seta.png'
-
+import api from '../../services/api'
 
 function Home() {
 
-    const users = [{
-        id: '23232323',
-        name: 'JDK',
-        idade: 90,
-        email: 'code@gmail.com'
-    },
-
-    {
-        id: '232432323',
-        name: 'JDKdf',
-        idade: 903,
-        email: 'cod3rdde@gmail.com'
-    },
+    let users = []
 
 
-
-
-
-    ]
+    async function getUsers(){//fora no servidor portas diferente await asy
+       users =  await api.get('/usuarios')
+    }
 
     return (
-
+    
 
         <div className='GERAL'>
             <div className='container'>
